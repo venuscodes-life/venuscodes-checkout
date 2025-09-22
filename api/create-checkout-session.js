@@ -31,18 +31,16 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: [
-        {
-          price_data: {
-            currency: "usd",
-            unit_amount: amount,
-            product_data: {
-              name: "Custom Plan",
-              description: "VenusCodes.life — custom amount checkout"
-            }
-          },
-          quantity: 1
-        }
-      ],
+  {
+    price_data: {
+      currency: "usd",
+      unit_amount: amount,
+      product: "prod_T5Lg1ww8A19M8h"  // ✅ your existing product
+    },
+    quantity: 1
+  }
+],
+
       success_url: "https://venuscodes.life/thanks?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "https://venuscodes.life/cancelled",
       customer_creation: "if_required",
