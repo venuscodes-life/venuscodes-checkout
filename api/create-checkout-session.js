@@ -3,7 +3,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const ALLOWED_ORIGINS = new Set([
   "https://venuscodes.life",
-  // later add your Vercel domain too
+  // venuscodes-checkout.vercel.app
 ]);
 
 function setCors(req, res) {
